@@ -11,5 +11,44 @@
     <h1 th:text="${'Max temp:' + w.getData().get(0).max_temp}">HJKDFHGklsdfik</h1>
     <h1 th:text="${'AVG temp:' + w.getData().get(0).temp}">HJKDFHGklsdfik</h1>
 
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+    <div style="position:absolute; right:300px; top:30px;">
+    <table>
+            <tr>
+            <th>TEMP</th>
+            <th>WIND_SPEED</th>
+            <th>DESCRIPTION</th>
+            </tr>
+            <tbody>
+                <div>
+                    <tr th:each="h : ${hour}">
+                        <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                        <td><span th:text="${h.getWind_spd()}"></span></td>
+                        <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+
+                    </tr>
+                </div>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 </body>
 </html>

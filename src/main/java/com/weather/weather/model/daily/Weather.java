@@ -1,4 +1,4 @@
-package com.weather.weather.model;
+package com.weather.weather.model.daily;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
