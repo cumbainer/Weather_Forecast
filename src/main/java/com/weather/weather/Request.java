@@ -15,18 +15,13 @@ import java.net.http.HttpResponse;
 
 
 //ToDO refactor later
-@Data
+
 @Component
 //https://api.weatherbit.io/v2.0/history/daily?city=Kyiv&country=Ukraine&start_date=2022-11-20&end_date=2022-11-27&key=730be0b5fcab45aa9e9606ca38a6c281
 public class Request {
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     private final String API_KEY = "730be0b5fcab45aa9e9606ca38a6c281";
 
-    private String city;
-    private String start_date;
-    private String end_date;
-    private HttpClient httpClient = HttpClient.newHttpClient();
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
 
     //ToDo make method of building URL with param (daily, hourly, historical etc)
@@ -44,7 +39,16 @@ public class Request {
 
     }
 
+    @SneakyThrows
+    public String sendHourlyRequest(String city, String start_date, String end_date){
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI("https://api.weatherbit.io/v2.0/history/hourly?city="+city+"&country=Ukraine&start_date="
+                        + start_date+"&end_date=" +end_date+"&key=" + this.API_KEY))
+                .GET().build();
+
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        return response.body();
 
 
-
+    }
 }

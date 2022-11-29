@@ -21,7 +21,7 @@ public class WeatherApplication {
         Gson gson = new Gson();
         String r = request.sendDayRequest("Kyiv", "2022-11-29", "2022-11-30");
         Info info = gson.fromJson(r, Info.class);
-        System.out.println(info);
+        System.out.println(r);
 
        SpringApplication.run(WeatherApplication.class, args);
     }
