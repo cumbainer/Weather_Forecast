@@ -44,7 +44,7 @@ public class Request {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI("https://api.weatherbit.io/v2.0/forecast/hourly?city="+city+
-                        "&country=Ukraine&hours="+hours+"&key="+this.API_KEY))
+                        "&country=Ukraine&lang=uk&hours="+hours+"&key="+this.API_KEY))
                 .GET().build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
@@ -54,5 +54,5 @@ public class Request {
 
 
 
-//lang=uk&
+
 }

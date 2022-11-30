@@ -13,4 +13,6 @@ public class Weather {
     private double max_temp;
     private double min_temp;
     private double temp;
+    DailyWeatherDescription weather;
+
 }

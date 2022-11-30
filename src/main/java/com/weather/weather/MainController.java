@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping("/")
 public class MainController {
@@ -25,6 +26,7 @@ public class MainController {
         Info info = json.getWeather(city_name);
         HourlyInfo hour = json.getHourlyWeather(city_name);
         model.addAttribute("w", info);
+        //ToDO add images
         model.addAttribute("hour", hour.getData());
 
         return "weather";

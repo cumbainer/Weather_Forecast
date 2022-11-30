@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class HourlyWeatherDescription {
     private String description;
+    private String icon;
 }
