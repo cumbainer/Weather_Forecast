@@ -26,11 +26,12 @@ public class Request {
 
     //ToDo make method of building URL with param (daily, hourly, historical etc)
 
+    //type is type of request (daily, hourly, historical etc)
     @SneakyThrows
-    public String sendDayRequest(String city, String start_date, String end_date)  {
+    public String sendDayRequest(String city, String start_date, String end_date, String type)  {
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.weatherbit.io/v2.0/history/daily?city="+city+"&country=Ukraine&start_date="
+                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/daily?city="+city+"&country=Ukraine&start_date="
                         + start_date+"&end_date=" +end_date+"&key=" + this.API_KEY))
                 .GET().build();
 
@@ -38,17 +39,20 @@ public class Request {
         return response.body();
 
     }
-
     @SneakyThrows
-    public String sendHourlyRequest(String city, String start_date, String end_date){
+    public String sendHourRequest(String city, Integer hours)  {
+
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.weatherbit.io/v2.0/history/hourly?city="+city+"&country=Ukraine&start_date="
-                        + start_date+"&end_date=" +end_date+"&key=" + this.API_KEY))
+                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/hourly?city="+city+
+                        "&country=Ukraine&hours="+hours+"&key="+this.API_KEY))
                 .GET().build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
 
-
     }
+
+
+
+//lang=uk&
 }

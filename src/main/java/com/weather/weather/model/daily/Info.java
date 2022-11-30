@@ -1,6 +1,5 @@
-package com.weather.weather.model;
+package com.weather.weather.model.daily;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
