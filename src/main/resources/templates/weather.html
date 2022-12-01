@@ -16,7 +16,17 @@
     <h1 th:text="${'Min temp:' + w.getData().get(0).min_temp}">HJKDFHGklsdfik</h1>
     <h1 th:text="${'Max temp:' + w.getData().get(0).max_temp}">HJKDFHGklsdfik</h1>
     <h1 th:text="${'AVG temp:' + w.getData().get(0).temp}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Description:' + w.getData().get(0).getWeather().description}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Description:' + w.getData().get(1).getWeather().description}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Description:' + w.getData().get(15).datetime} + '   3'"></h1>
+    <h1 th:text="${'Description:' + w.getData().get(15).temp} + '   temp'"></h1>
+
+
+    <input type="text" id="txtName"/>
+    <a href = "javascript:;" onclick = "this.href= document.getElementById('txtName').value">Send</a>
+
+
+
+
 
 
 
@@ -36,7 +46,9 @@
         }
     </style>
 
-    <div style="position:absolute; right:300px; top:60px;">
+    <div style=" position:absolute; right:300px; top:60px;
+        ">
+    </label>
     <table>
             <tr>
             <th>DATETIME</th>
