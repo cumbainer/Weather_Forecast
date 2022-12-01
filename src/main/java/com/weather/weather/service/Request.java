@@ -1,14 +1,8 @@
-package com.weather.weather;
+package com.weather.weather.service;
 
-import io.netty.handler.codec.http.HttpMethod;
-import lombok.*;
-import org.springframework.http.StreamingHttpOutputMessage;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -28,30 +22,29 @@ public class Request {
 
     //type is type of request (daily, hourly, historical etc)
     @SneakyThrows
-    public String sendDayRequest(String city, Integer days)  {
+    public String sendDayRequest(String city, Integer days) {
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/daily?city="+city+"&country=Ukraine&days="+days+"&key=" + this.API_KEY))
+                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/daily?city=" + city + "&country=Ukraine&days=" + days + "&key=" + this.API_KEY))
                 .GET().build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
 
     }
+
     @SneakyThrows
-    public String sendHourRequest(String city, Integer hours)  {
+    public String sendHourRequest(String city, Integer hours) {
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/hourly?city="+city+
-                        "&country=Ukraine&lang=uk&hours="+hours+"&key="+this.API_KEY))
+                .uri(new URI("https://api.weatherbit.io/v2.0/forecast/hourly?city=" + city +
+                        "&country=Ukraine&lang=uk&hours=" + hours + "&key=" + this.API_KEY))
                 .GET().build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
 
     }
-
-
 
 
 }
