@@ -28,7 +28,7 @@ public class JsonPlaceholderService {
     }
 
     public Info getWeather(String city_name){
-        return gson.fromJson(request.sendDayRequest(city_name, start_date, end_date, "daily"), Info.class);
+        return gson.fromJson(request.sendDayRequest(city_name, 7), Info.class);
     }
 
     public HourlyInfo getHourlyWeather(String city_name){
