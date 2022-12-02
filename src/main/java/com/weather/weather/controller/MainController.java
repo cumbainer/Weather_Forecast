@@ -1,7 +1,8 @@
-package com.weather.weather;
+package com.weather.weather.controller;
 
 import com.weather.weather.model.daily.Info;
 import com.weather.weather.model.hourly.HourlyInfo;
+import com.weather.weather.service.JsonPlaceholderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,16 +22,20 @@ public class MainController {
     }
 
 
-    @GetMapping("/{city_name}/{date}")
-    public String getWeather(@PathVariable("city_name") String city_name,@PathVariable("date") String date, Model model)  {
+    @GetMapping("/{city_name}")
+    public String getWeather(@PathVariable("city_name") String city_name, Model model)  {
         Info info = json.getWeather(city_name);
         HourlyInfo hour = json.getHourlyWeather(city_name);
-        model.addAttribute("w", info);
-        //ToDO add images
+        model.addAttribute("day", info);
+        //ToDo add images
+
+        //ToDO add function to html page to every day of a week. Example if (Monday - list.get(1), Tuesday - list.get(2)
         model.addAttribute("hour", hour.getData());
 
         return "weather";
     }
+
+
 
 
 }

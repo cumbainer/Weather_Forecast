@@ -5,22 +5,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<nav class="navbar navbar-light bg-secondary" th:fragment="header">
+<nav class="navbar navbar-light bg-secondary">
     <div class="container -p2">
         <a class="navbar-brand" >Weather Forecast</a>
     </div>
+    <div>
+        <label for="txtName">
+            <input type="text" id="txtName"/>
+            <a href = "javascript:;" onclick = "this.href= document.getElementById('txtName').value">Send</a>
+        </label>
+    </div>
 </nav>
 <body>
-    <h1 th:text="${'City name is:' + w.city_name}"></h1>
-    <h1 th:text="${'TImezoen is: ' + w.getTimezone()}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Min temp:' + w.getData().get(0).min_temp}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Max temp:' + w.getData().get(0).max_temp}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'AVG temp:' + w.getData().get(0).temp}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Description:' + w.getData().get(1).getWeather().description}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Datetime is:' + w.getData().get(2).datetime}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Datetime is:' + w.getData().get(1).datetime}">HJKDFHGklsdfik</h1>
-    <h1 th:text="${'Datetime is:' + w.getData().get(3).datetime}">HJKDFHGklsdfik</h1>
-    <a href=""></a>
+
+
+
+    <h1 th:text="${'City name is:' + day.city_name}"></h1>
+    <h1 th:text="${'TImezoen is: ' + day.getTimezone()}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Min temp:' + day.getData().get(0).min_temp}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Max temp:' + day.getData().get(0).max_temp}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'AVG temp:' + day.getData().get(0).temp}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Description:' + day.getData().get(1).getWeather().description}">HJKDFHGklsdfik</h1>
+    <h1 th:text="${'Description:' + day.getData().get(6).datetime} + '   3'"></h1>
+    <h1 th:text="${'Description:' + day.getData().get(6).max_temp} + '   temp'"></h1>
+    <img src="https://www.weatherbit.io/static/img/icons/t01d.png" alt=""> - ПРАЦЮЄ
+
+
+
+
+
+
+
+
 
 
 
@@ -40,13 +56,16 @@
         }
     </style>
 
-    <div style="position:absolute; right:300px; top:60px;">
+    <div style=" position:absolute; right:300px; top:60px;
+        ">
+    </label>
     <table>
             <tr>
             <th>DATETIME</th>
             <th>TEMP</th>
             <th>WIND_SPEED</th>
             <th>DESCRIPTION</th>
+            <th>IMAGE</th>
 
             </tr>
             <tbody>
@@ -57,6 +76,8 @@
                         <td><span th:text="${h.getTemp() + 'C'}"></span></td>
                         <td><span th:text="${h.getWind_spd()}"></span></td>
                         <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                            <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                            +'.png'}" alt="" width="50px"></td>
                         </div>
                     </tr>
 
