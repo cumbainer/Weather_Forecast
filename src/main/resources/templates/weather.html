@@ -17,6 +17,8 @@
     </div>
 </nav>
 <body>
+    <h2 th:text="'Weather in: ' + ${day.getCity_name()}"></h2>
+    <h3 th:text="${day.getTimezone()}"></h3>
 
 
 <table>
@@ -30,11 +32,12 @@
         <th>SUNDAY</th>
 
 
-    </td>
+    </tr>
 
     <tr th:each="d, iter : ${day.getData()}">
 
-            <td th:text="${d.datetime}"></td>
+            <td th:text="${d.datetime}" ></td>
+        <a th:href="@{'/'+${day.getCity_name()}}" th:text="sdfgsdgsd"/>
             <td th:text="${'Temperature: '+d.temp}"/>
             <td th:text="${'Min/Max temp: '+ d.min_temp +'C /'+ d.max_temp +'C'}"/>
             <td th:text="${d.weather.getDescription()}"/>
@@ -64,28 +67,7 @@
     <div style=" position:absolute; right:300px; top:60px;
         ">
     </label>
-<!--    <table>-->
-<!--            <tr>-->
-<!--            <th>DATETIME</th>-->
-<!--            <th>TEMP</th>-->
-<!--            <th>WIND_SPEED</th>-->
-<!--            <th>DESCRIPTION</th>-->
-<!--            <th>IMAGE</th>-->
 
-<!--            </tr>-->
-<!--            <tbody>-->
-<!--                    <tr th:each="h, iter : ${hour}">-->
-<!--                        <div th:if="${iter.index}%3==0">-->
-<!--                        <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>-->
-<!--                        <td><span th:text="${h.getTemp() + 'C'}"></span></td>-->
-<!--                        <td><span th:text="${h.getWind_spd()}"></span></td>-->
-<!--                        <td><span th:text="${h.getWeather().getDescription()}"></span></td>-->
-<!--                            <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()-->
-<!--                            +'.png'}" alt="" width="50px"></td>-->
-<!--                        </div>-->
-<!--                    </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
 
     </div>
 

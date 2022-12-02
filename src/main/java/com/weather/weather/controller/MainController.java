@@ -23,7 +23,7 @@ public class MainController {
 
 
     @GetMapping("/{city_name}")
-    public String getWeather(@PathVariable("city_name") String city_name,
+    public String getDayWeather(@PathVariable("city_name") String city_name,
                              Model model)  {
         Info info = json.getWeather(city_name);
         HourlyInfo hour = json.getHourlyWeather(city_name);
@@ -34,6 +34,18 @@ public class MainController {
         model.addAttribute("hour", hour.getData());
 
         return "weather";
+    }
+
+    // @PathVariable("date") String date,
+    @GetMapping("/{city_name}/{date}")
+    public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("date") String date,
+                             Model model)  {
+        HourlyInfo hour = json.getHourlyWeather(city_name);
+
+
+        model.addAttribute("hour", hour.getData());
+
+        return "weather-hour";
     }
 
 
