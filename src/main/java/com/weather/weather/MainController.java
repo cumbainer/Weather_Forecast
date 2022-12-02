@@ -21,8 +21,8 @@ public class MainController {
     }
 
 
-    @GetMapping("/{city_name}")
-    public String getWeather(@PathVariable("city_name") String city_name, Model model)  {
+    @GetMapping("/{city_name}/{date}")
+    public String getWeather(@PathVariable("city_name") String city_name,@PathVariable("date") String date, Model model)  {
         Info info = json.getWeather(city_name);
         HourlyInfo hour = json.getHourlyWeather(city_name);
         model.addAttribute("w", info);

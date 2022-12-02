@@ -19,9 +19,11 @@ public class JsonPlaceholderService {
     private final Gson gson = new Gson();
     Pattern pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}:(\\d{2})");
     private final String start_date = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE);
-    private final String end_date = LocalDateTime.now().plusHours(1).format(DateTimeFormatter.ISO_DATE);
+    private final String end_date = LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ISO_DATE);
 
 
+
+    //ToDo add possibility to see date in url using @PathVariable, example (../Kiev/2022-12-02)
     @Autowired
     public JsonPlaceholderService(Request request) {
         this.request = request;
