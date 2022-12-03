@@ -36,7 +36,7 @@ public class MainController {
         return "weather";
     }
 
-    // @PathVariable("date") String date,
+
     @GetMapping("/{city_name}/{datetime}")
     public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,
                              Model model)  {
