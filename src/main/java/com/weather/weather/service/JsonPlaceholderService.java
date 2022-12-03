@@ -14,6 +14,8 @@ public class JsonPlaceholderService {
 
 
 
+
+    //ToDo add possibility to see date in url using @PathVariable, example (../Kiev/2022-12-02)
     @Autowired
     public JsonPlaceholderService(Request request) {
         this.request = request;

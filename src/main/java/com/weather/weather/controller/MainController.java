@@ -23,16 +23,29 @@ public class MainController {
 
 
     @GetMapping("/{city_name}")
-    public String getWeather(@PathVariable("city_name") String city_name, Model model)  {
+    public String getDayWeather(@PathVariable("city_name") String city_name,
+                             Model model)  {
         Info info = json.getWeather(city_name);
         HourlyInfo hour = json.getHourlyWeather(city_name);
         model.addAttribute("day", info);
-        //ToDo add images
+
 
         //ToDO add function to html page to every day of a week. Example if (Monday - list.get(1), Tuesday - list.get(2)
         model.addAttribute("hour", hour.getData());
 
         return "weather";
+    }
+
+    // @PathVariable("date") String date,
+    @GetMapping("/{city_name}/{datetime}")
+    public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,
+                             Model model)  {
+        HourlyInfo hour = json.getHourlyWeather(city_name);
+
+
+        model.addAttribute("hour", hour.getData());
+
+        return "weather-hour";
     }
 
 
