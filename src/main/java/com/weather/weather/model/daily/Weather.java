@@ -13,6 +13,9 @@ public class Weather {
     private double max_temp;
     private double min_temp;
     private double temp;
+    private double app_max_temp;
+    private double app_min_temp;
+    private double feels_as = (app_max_temp + app_min_temp) /2;
     DailyWeatherDescription weather;
 
 }

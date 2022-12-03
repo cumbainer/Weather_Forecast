@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
  * Made by @cumbainer (Vlad Shtaiier)
  */
 
+
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class WeatherApplication {
     public static void main(String[] args)  {

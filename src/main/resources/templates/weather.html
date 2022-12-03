@@ -16,9 +16,15 @@
         </label>
     </div>
 </nav>
+
+<!--    ToDO add round to following field-->
 <body>
+
+
     <h2 th:text="'Weather in: ' + ${day.getCity_name()}"></h2>
-    <h3 th:text="${day.getTimezone()}"></h3>
+    <h3 th:text="${day.getTimezone()}"></h3><br>
+
+
 
 
 <table>
@@ -36,16 +42,18 @@
 
     <tr th:each="d, iter : ${day.getData()}">
 
+
+
             <td th:text="${d.datetime}" ></td>
 
-<!--        <a th:href="@{'/'+${day.getCity_name()}+'/'+ }"> <td th:text="${d.datetime}"></td></a>-->
+            <td><a th:href="@{'/'+${day.getCity_name()}+'/'+${d.getDatetime()} }" th:text="${d.datetime}"/></td>
+            <td th:text="${'Temperature: '+d.temp + 'C'}"/>
 
-        <td th:href="@{'/'+${day.getCity_name()}+'/'+ }"><a  th:text="${d.datetime}"></a></td>
-            <td th:text="${'Temperature: '+d.temp}"/>
             <td th:text="${'Min/Max temp: '+ d.min_temp +'C /'+ d.max_temp +'C'}"/>
             <td th:text="${d.weather.getDescription()}"/>
             <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${d.weather.icon
                                     +'.png'}" alt="" width="50px"></td>
+
 
     </tr>
 
