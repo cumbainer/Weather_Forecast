@@ -1,4 +1,4 @@
-package com.weather.weather.model.daily;
+package com.weather.weather.json.daily;
 
 import lombok.Data;
 

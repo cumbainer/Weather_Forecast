@@ -1,8 +1,8 @@
 package com.weather.weather.service;
 
 import com.google.gson.Gson;
-import com.weather.weather.model.daily.Info;
-import com.weather.weather.model.hourly.HourlyInfo;
+import com.weather.weather.json.daily.Info;
+import com.weather.weather.json.hourly.HourlyInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +30,6 @@ public class JsonPlaceholderService {
 
         return gson.fromJson(request.sendHourRequest(city_name,24), HourlyInfo.class);
     }
-
-
-
-
-
 
 
 }
