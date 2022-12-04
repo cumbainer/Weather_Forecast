@@ -1,28 +1,18 @@
-//package com.weather.weather.security;
-//
-//
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
-//import org.springframework.security.config.http.SessionCreationPolicy;
-//import org.springframework.security.web.SecurityFilterChain;
-//
-//@EnableWebSecurity
-//@Configuration
-//public class SecurityConfig{
-//
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.cors().and().csrf().disable()
-//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-//                .antMatchers("/api/test/**").permitAll()
-//                .anyRequest().authenticated();
-//    }
-//
-//
-//
-//}
+package com.weather.weather.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+
+//main Spring Security Config class
+@Configuration
+public class SecurityConfig {
+
+    //no userDetailsService() method because we have annotation @Service ot the top of CustomUserDetailsService class
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+}
