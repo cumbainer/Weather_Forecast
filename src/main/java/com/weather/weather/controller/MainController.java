@@ -1,7 +1,7 @@
 package com.weather.weather.controller;
 
-import com.weather.weather.model.daily.Info;
-import com.weather.weather.model.hourly.HourlyInfo;
+import com.weather.weather.json.daily.Info;
+import com.weather.weather.json.hourly.HourlyInfo;
 import com.weather.weather.service.JsonPlaceholderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
