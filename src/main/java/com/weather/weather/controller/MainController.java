@@ -33,6 +33,7 @@ public class MainController {
         //ToDO add function to html page to every day of a week. Example if (Monday - list.get(1), Tuesday - list.get(2)
         model.addAttribute("hour", hour.getData());
 
+
         return "weather";
     }
 
@@ -43,7 +44,7 @@ public class MainController {
         HourlyInfo hour = json.getHourlyWeather(city_name);
 
 
-        model.addAttribute("hour", hour.getData());
+        model.addAttribute("hour", hour);
 
         return "weather-hour";
     }
