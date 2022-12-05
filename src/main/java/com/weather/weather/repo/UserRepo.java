@@ -3,11 +3,13 @@ package com.weather.weather.repo;
 import com.weather.weather.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 
 //No need @Repository, is does nothing
+
 public interface UserRepo extends JpaRepository<User, Long> {
 
 
