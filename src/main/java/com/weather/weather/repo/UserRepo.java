@@ -7,15 +7,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
 //No need @Repository, is does nothing
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
 
     //Spring Data should automatically translate the name into @Query, but i wrote my own for clearly purpose
-    @Query("""
-    SELECT u FROM User u WHERE u.username = :username
-    """)
+//    @Query("""
+//    SELECT u FROM User u WHERE u.username = :username
+//    """)
     Optional<User> findUserByUsername(String username);
+
+
 }

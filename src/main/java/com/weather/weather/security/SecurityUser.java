@@ -2,12 +2,12 @@ package com.weather.weather.security;
 
 import com.weather.weather.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-
 
 @AllArgsConstructor
 //This class is needed for recognizing Spring Security what to return in method loadUserByUsername() in CustomUserDetailsService class
@@ -19,6 +19,7 @@ public class SecurityUser implements UserDetails {
     @Override
     public String getUsername() {
         return user.getUsername();
+
     }
 
     @Override
@@ -36,6 +37,7 @@ public class SecurityUser implements UserDetails {
 
     //All is true
     //ToDo implement it later
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
