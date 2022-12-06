@@ -5,6 +5,8 @@ import lombok.Data;
 
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Entity
 @Table(name = "users")
@@ -17,9 +19,12 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-
     private String username;
-
-
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "collaborator",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 }

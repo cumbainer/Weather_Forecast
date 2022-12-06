@@ -22,7 +22,7 @@ public class Request {
 
     //type is type of request (daily, hourly, historical etc)
     @SneakyThrows
-    public String sendDayRequest(String city, Integer days) {
+    public String sendDayRequest(String city, String days) {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI("https://api.weatherbit.io/v2.0/forecast/daily?city=" + city + "&country=Ukraine&days=" + days + "&key=" + this.API_KEY))
@@ -34,7 +34,7 @@ public class Request {
     }
 
     @SneakyThrows
-    public String sendHourRequest(String city, Integer hours) {
+    public String sendHourRequest(String city, String hours) {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI("https://api.weatherbit.io/v2.0/forecast/hourly?city=" + city +

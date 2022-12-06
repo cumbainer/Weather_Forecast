@@ -20,9 +20,16 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
                 .csrf().disable()
-             //  .authorizeHttpRequests().anyRequest().authenticated()
-                .authorizeHttpRequests().requestMatchers("/{city_name}").permitAll()
-                .and().authorizeHttpRequests().requestMatchers("/{city_name}/{datetime}").authenticated()
+
+                .authorizeHttpRequests().anyRequest().permitAll()
+                .and()
+
+               //.authorizeHttpRequests().anyRequest().authenticated()
+                .formLogin()
+              //  .authorizeHttpRequests().requestMatchers("/{city_name}").permitAll()
+
+         //       .and().authorizeHttpRequests().requestMatchers("/{city_name}/{datetime}").authenticated()
+
                 .and().build();
 
     }
