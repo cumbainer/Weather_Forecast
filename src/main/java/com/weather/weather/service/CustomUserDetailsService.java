@@ -5,6 +5,8 @@ import com.weather.weather.security.SecurityUser;
 import lombok.AllArgsConstructor;
 
 import lombok.NoArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,6 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
     private UserRepo userRepo;
+    private final Logger logger = LoggerFactory.getLogger(Logger.class);
 
 
 
