@@ -10,7 +10,7 @@ public class HourlyWeather {
     private double wind_spd;
 
     private String datetime;
-    HourlyWeatherDescription weather;
+    HourlyWeatherDescription weather = new HourlyWeatherDescription();
 
 
 
