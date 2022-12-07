@@ -22,15 +22,23 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        return http.httpBasic()
-                .and().csrf().disable()
-                .formLogin()
+            http.csrf().disable()
+                .authorizeHttpRequests()
+
+
+
+                .anyRequest().authenticated()
                 .and()
-                .authorizeHttpRequests().anyRequest().authenticated()
+                .formLogin()
+                .loginPage("/login").permitAll()
+           //      .loginProcessingUrl("/weather-hour")
+                    .defaultSuccessUrl("/d/Kyiv", true);
+        ;
 
 
 
-                .and().build();
+            return http.build();
+
 
     }
 
@@ -39,13 +47,20 @@ public class SecurityConfig {
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Bean
-    public WebSecurityCustomizer ignoreResources() {
-        return (webSecurity) -> webSecurity
-                .ignoring()
-                .requestMatchers("/hello/*");  //ToDo change later to valid page
 
-    }
+
+//    @Bean
+//    public WebSecurityCustomizer ignoreResources() {
+//        return (webSecurity) -> webSecurity
+//                .ignoring()
+//                .requestMatchers("/d/*");  //ToDo change later to valid page
+//
+//    }
+//
+
+
+
+
 
 
 

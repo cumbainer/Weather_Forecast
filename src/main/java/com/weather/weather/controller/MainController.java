@@ -27,7 +27,7 @@ public class MainController {
 
     @GetMapping("/d/{city_name}")
 
-    @PreAuthorize("hasRole('ROLE_ADIMN') or hasAnyRole('ROLE_ADMIN')")
+
     public String getDayWeather(@PathVariable("city_name") String city_name,
                              Model model)  {
         Info info = json.getWeather(city_name);
@@ -44,8 +44,7 @@ public class MainController {
     }
 
 
-    @GetMapping("/h/{city_name}/{datetime}")
-  //  @PreAuthorize("hasRole('admin')")
+    @GetMapping("/{city_name}/{datetime}")
     public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,    //ToDo fix hourly weather later
                              Model model)  {
         HourlyInfo hour = json.getHourlyWeather(city_name);
@@ -54,6 +53,13 @@ public class MainController {
 
         return "weather-hour";
     }
+
+    @GetMapping("/login")
+    public String login (){
+        return "login";
+    }
+
+
 
 
 }
