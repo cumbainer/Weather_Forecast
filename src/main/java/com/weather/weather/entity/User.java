@@ -1,30 +1,45 @@
 package com.weather.weather.entity;
 
+
+
+
+import com.weather.weather.entity.Role;
+import lombok.*;
+
 import jakarta.persistence.*;
-import lombok.Data;
 
-import lombok.NoArgsConstructor;
-
-import java.util.Set;
+import java.util.*;
 
 
 @Entity
 @Table(name = "users")
 @Data
-@NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "collaborator",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+
+    @Column(name = "role")
+    private String role;
+
+
+
+//    @ManyToMany
+//    @JoinTable(name = "collaborator",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
+//    private Set<Role> roles;
+
+
+
+
 }

@@ -1,8 +1,10 @@
 package com.weather.weather.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
+import lombok.*;
+
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,10 +16,14 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+
+
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
+//    private Set<User> users;
+
+
 
 }

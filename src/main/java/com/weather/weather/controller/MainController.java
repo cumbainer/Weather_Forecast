@@ -16,7 +16,6 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/")
 public class MainController {
     JsonPlaceholderService json;
 
@@ -26,8 +25,9 @@ public class MainController {
     }
 
 
-    @GetMapping("/{city_name}")
-    @PreAuthorize("hasAnyRole('admin')")
+    @GetMapping("/d/{city_name}")
+
+    @PreAuthorize("hasRole('ROLE_ADIMN') or hasAnyRole('ROLE_ADMIN')")
     public String getDayWeather(@PathVariable("city_name") String city_name,
                              Model model)  {
         Info info = json.getWeather(city_name);
@@ -39,22 +39,21 @@ public class MainController {
         //ToDO add function to html page to every day of a week. Example if (Monday - list.get(1), Tuesday - list.get(2)
         model.addAttribute("hour", json.getHourlyWeather(city_name));
 
+
         return "weather";
     }
 
 
-    @GetMapping("/{city_name}/{datetime}")
-    public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,
+    @GetMapping("/h/{city_name}/{datetime}")
+  //  @PreAuthorize("hasRole('admin')")
+    public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,    //ToDo fix hourly weather later
                              Model model)  {
         HourlyInfo hour = json.getHourlyWeather(city_name);
-
-
 
         model.addAttribute("hour", hour);
 
         return "weather-hour";
     }
-
 
 
 }
