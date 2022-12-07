@@ -43,13 +43,6 @@ public class SecurityUser implements UserDetails {
     //This method represents what users are allowed to do(authorities)
     //ToDo replace after with not static impl
     public Collection<? extends GrantedAuthority> getAuthorities() {
-          var roles = user.getRole();
-//        List<GrantedAuthority> roleList = new ArrayList<>();
-//        for(var a: roles){
-//            roleList.add(new SimpleGrantedAuthority("ROLE_" + a.getName() ));
-//        }
-//
-//        return roleList;
         List<GrantedAuthority> roleList = new ArrayList<>();
         roleList.add(new SimpleGrantedAuthority("ROLE_" +user.getRole()));
         return roleList;

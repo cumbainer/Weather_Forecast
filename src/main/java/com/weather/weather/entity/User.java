@@ -3,12 +3,9 @@ package com.weather.weather.entity;
 
 
 
-import com.weather.weather.entity.Role;
 import lombok.*;
 
 import jakarta.persistence.*;
-
-import java.util.*;
 
 
 @Entity
@@ -27,9 +24,13 @@ public class User {
     private String password;
 
 
-    @Column(name = "role")
-    private String role;
+//    @Column(name = "role")
+//    private String role;
 
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
 
 
 //    @ManyToMany

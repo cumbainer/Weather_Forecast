@@ -1,27 +1,50 @@
 package com.weather.weather.controller;
 
+import com.weather.weather.entity.Role;
+import com.weather.weather.entity.User;
 import com.weather.weather.json.daily.Info;
 import com.weather.weather.json.hourly.HourlyInfo;
 import com.weather.weather.json.hourly.HourlyWeather;
 import com.weather.weather.service.JsonPlaceholderService;
+import com.weather.weather.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @Controller
+@AllArgsConstructor
 public class MainController {
     JsonPlaceholderService json;
+    UserService userService;
 
-    @Autowired
-    public MainController(JsonPlaceholderService json) {
-        this.json = json;
+
+
+    @GetMapping("/create")
+    public String create(Model model) {
+
+        model.addAttribute("user", new User());
+        model.addAttribute("roles",  Role.values());
+        return "create-user";
+    }
+
+    @PostMapping("/create")
+    public String create(@Validated @ModelAttribute("user") User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "create-user";
+        }
+        user.setPassword(user.getPassword());
+        user.setRole(Role.USER);
+        //make role later
+        userService.create(user);
+        return "redirect:/d/Kyiv";
     }
 
 
