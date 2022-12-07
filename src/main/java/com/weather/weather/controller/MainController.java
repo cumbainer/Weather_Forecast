@@ -26,8 +26,7 @@ public class MainController {
 
 
     @GetMapping("/d/{city_name}")
-
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String getDayWeather(@PathVariable("city_name") String city_name,
                              Model model)  {
         Info info = json.getWeather(city_name);
