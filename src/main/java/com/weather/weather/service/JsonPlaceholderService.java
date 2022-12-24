@@ -3,18 +3,13 @@ package com.weather.weather.service;
 import com.google.gson.Gson;
 import com.weather.weather.json.daily.Info;
 import com.weather.weather.json.hourly.HourlyInfo;
-import com.weather.weather.json.hourly.HourlyWeather;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.SpelEvaluationException;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.exceptions.TemplateInputException;
-
-import java.util.List;
 
 
 @Service
 public class JsonPlaceholderService {
-    private Request request;
+    private Client request;
     private final Gson gson = new Gson();
 
 
@@ -23,7 +18,7 @@ public class JsonPlaceholderService {
 
     //ToDo add possibility to see date in url using @PathVariable, example (../Kiev/2022-12-02)
     @Autowired
-    public JsonPlaceholderService(Request request) {
+    public JsonPlaceholderService(Client request) {
         this.request = request;
     }
 

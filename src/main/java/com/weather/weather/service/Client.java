@@ -15,8 +15,8 @@ import java.net.http.HttpResponse;
 //ToDO refactor later
 
 @Component
-//https://api.weatherbit.io/v2.0/forecast/daily?city=Kyiv&country=Ukraine&days=3&key=730be0b5fcab45aa9e9606ca38a6c281
-public class Request {
+//https://api.weatherbit.io/v2.0/forecast/daily?city=Kyiv&country=Ukraine&days=3&key=df4dfd8452b947299862f2ab1bac7663
+public class Client {
     private final String API_KEY = getAPI_KEY();
 
     private final HttpClient httpClient = HttpClient.newHttpClient();

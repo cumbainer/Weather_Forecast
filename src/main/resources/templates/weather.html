@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 
     <meta charset="UTF-8">
@@ -84,9 +84,15 @@
     </label>
 
 
+    </div >
+
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <a th:href="@{/admin/users}">
+            <button type="button" class="btn btn-outline btn-primary btn-lg">Go to Users</button>
+        </a>
     </div>
 
 
-
+    <link rel="stylesheet" href="/style.css">
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="center">
+          <h1>Welcome to Home Page</h1>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin/users}">
+                <button type="button" class="btn btn-outline btn-primary btn-lg">USERS</button>
+            </a>
+
+
+        <a th:href="@{/d/Kyiv}">
+            <button type="button" class="btn btn-outline btn-primary btn-lg">WEATHER</button>
+        </a>
+    </div>
+
+
+  <link rel="stylesheet" href="/style.css">
+</body>
+</html>

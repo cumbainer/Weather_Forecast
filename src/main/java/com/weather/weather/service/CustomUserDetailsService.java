@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -22,19 +23,15 @@ import org.springframework.transaction.annotation.Transactional;
 //No Arg con requeired for working properly
 @Service
 @AllArgsConstructor
-
+@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
-@Autowired
     private UserRepo userRepo;
-
-
-    protected final Log logger = LogFactory.getLog(getClass());
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var user = userRepo.findUserByUsername(username);
-        logger.info("loadUserByUsername USERNAME= "+username);
+        log.info("loadUserByUsername USERNAME= "+username);
 
 
 

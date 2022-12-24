@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/login").permitAll()
            //      .loginProcessingUrl("/weather-hour")
-                    .defaultSuccessUrl("/d/Kyiv", true);
+                    .defaultSuccessUrl("/home", true);
         ;
 
 
