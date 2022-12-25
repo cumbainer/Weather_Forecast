@@ -47,9 +47,6 @@
     </tr>
 
     <tr th:each="d, iter : ${day.getData()}">
-        
-            <td th:text="${d.datetime}" ></td>
-
 
             <td><a th:href="@{'/'+${day.getCity_name()}+'/'+${d.getDatetime()} }" th:text="${d.datetime}"/></td>
             <td th:text="${'Temperature: '+d.temp + 'C'}"/>

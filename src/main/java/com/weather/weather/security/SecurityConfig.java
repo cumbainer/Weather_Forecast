@@ -25,22 +25,22 @@ public class SecurityConfig {
             http.csrf().disable()
                     .authorizeHttpRequests().requestMatchers("/create").permitAll()
                     .and()
+                    .authorizeHttpRequests()
+                    .requestMatchers("/home").anonymous()
+                    .and()
+
 
                 .authorizeHttpRequests()
 
                 .anyRequest().authenticated()
 
+
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-           //      .loginProcessingUrl("/weather-hour")
-                    .defaultSuccessUrl("/home", true);
-        ;
-
-
+                    .defaultSuccessUrl("/d/Kyiv", true);
 
             return http.build();
-
 
     }
 
@@ -48,23 +48,6 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
-
-
-
-//    @Bean
-//    public WebSecurityCustomizer ignoreResources() {
-//        return (webSecurity) -> webSecurity
-//                .ignoring()
-//                .requestMatchers("/d/*");  //ToDo change later to valid page
-//
-//    }
-//
-
-
-
-
-
-
 
 
 }
