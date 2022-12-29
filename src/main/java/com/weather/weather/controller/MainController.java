@@ -16,6 +16,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -69,9 +72,27 @@ public class MainController {
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/{city_name}/{datetime}")
     public String getHourWeather(@PathVariable("city_name") String city_name, @PathVariable("datetime") String date,    //ToDo fix hourly weather later
-                             Model model)  {
+                                 Model model)  {
         HourlyInfo hour = json.getHourlyWeather(city_name);
 
+//        LocalDate localDate = LocalDate.now();//For reference
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        date = localDate.format(formatter);
+        //will print 2022-12-29
+
+        model.addAttribute("today",  LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusOneDay",  LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusTwoDays",  LocalDateTime.now().plusDays(2).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusThreeDays",  LocalDateTime.now().plusDays(3).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusFourDays",  LocalDateTime.now().plusDays(4).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusFiveDays",  LocalDateTime.now().plusDays(5).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusSixDays",  LocalDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusSeverDays",  LocalDateTime.now().plusDays(7).format(DateTimeFormatter.ISO_LOCAL_DATE));
+
+
+
+
+        model.addAttribute("date", date);
         model.addAttribute("hour", hour);
 
         return "weather-hour";

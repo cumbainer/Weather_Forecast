@@ -22,9 +22,7 @@ public class Client {
     private final HttpClient httpClient = HttpClient.newHttpClient();
 
 
-    //ToDo make method of building URL with param (daily, hourly, historical etc)
-
-    //type is type of request (daily, hourly, historical etc)
+    //method of generating url and getting response via daily weather
     @SneakyThrows
     public String sendDayRequest(String city, String days) {
 
@@ -37,6 +35,7 @@ public class Client {
 
     }
 
+    //method of generating url and getting response via hourly weather
     @SneakyThrows
     public String sendHourRequest(String city, String hours) {
 
@@ -50,6 +49,9 @@ public class Client {
 
     }
 
+
+    //method to hide apikey
+    //df4dfd8452b947299862f2ab1bac7663
     @SneakyThrows
     private String getAPI_KEY(){
         File file = new File(
@@ -58,9 +60,7 @@ public class Client {
         BufferedReader br
                 = new BufferedReader(new FileReader(file));
 
-        String out = br.readLine();
-
-        return out;
+        return br.readLine();
     }
 
 
