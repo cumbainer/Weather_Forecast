@@ -1,5 +1,6 @@
 package com.weather.weather.service;
 
+import com.weather.weather.entity.Role;
 import com.weather.weather.entity.User;
 import com.weather.weather.exception.NullEntityReferenceException;
 import com.weather.weather.repo.UserRepo;
@@ -24,6 +25,7 @@ public class UserService {
     public User create(User user) {
         if (user != null) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRole(Role.USER);
             return userRepo.save(user);
         }
         throw new NullEntityReferenceException("User cannot be 'null'");
