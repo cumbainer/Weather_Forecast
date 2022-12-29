@@ -29,8 +29,6 @@ public class UserService {
         throw new NullEntityReferenceException("User cannot be 'null'");
     }
 
-
-
     public User readById(long id) {
         log.info("READ BY ID iS CALLED: " + userRepo.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("User with id " + id + " not found")));

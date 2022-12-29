@@ -46,13 +46,11 @@
             </tr>
             <tbody>
 
-
                     <tr th:each="h, iter : ${hour.data}">
                         <th:block th:switch="${date}">
 
 
-
-                            <div th:case="${today}" th:if="${iter.count <= 9}" >
+                            <div th:case="${today}" th:if="${iter.count <= 9}"  >
                                 <div th:if="${iter.index}%2==0">
                                     <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
                                     <td><span th:text="${h.getTemp() + 'C'}"></span></td>
@@ -63,6 +61,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
 
                             <div th:case="${plusOneDay}" th:if="${iter.count >= 10 && iter.count <= 33}">
@@ -147,17 +146,14 @@
 
                         </th:block>
 
+                        </div>
+
                     </tr>
             </tbody>
         </table>
         <input type="button" style="width:120px; height:60px" value="Go back!" onclick="history.back()">
 
-
-
-
-
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </body>
 </html>
 
-<!--ToDO add метри за секунду ту вітер -->

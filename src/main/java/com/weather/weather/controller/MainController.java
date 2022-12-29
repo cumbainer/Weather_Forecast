@@ -28,8 +28,6 @@ public class MainController {
     JsonPlaceholderService json;
     UserService userService;
 
-
-
     @GetMapping("/create")
     public String create(Model model) {
 
@@ -82,16 +80,14 @@ public class MainController {
 
 
         //ToDo refactor making a method to not duplicate code
-        model.addAttribute("today",  LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusOneDay",  LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusTwoDays",  LocalDateTime.now().plusDays(2).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusThreeDays",  LocalDateTime.now().plusDays(3).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusFourDays",  LocalDateTime.now().plusDays(4).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusFiveDays",  LocalDateTime.now().plusDays(5).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusSixDays",  LocalDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusSevenDays",  LocalDateTime.now().plusDays(7).format(DateTimeFormatter.ISO_LOCAL_DATE));
-
-
+        model.addAttribute("today", modelWeather(0));
+        model.addAttribute("plusOneDay", modelWeather(1));
+        model.addAttribute("plusTwoDays", modelWeather(2));
+        model.addAttribute("plusThreeDays", modelWeather(3));
+        model.addAttribute("plusFourDays", modelWeather(4));
+        model.addAttribute("plusFiveDays", modelWeather(5));
+        model.addAttribute("plusSixDays", modelWeather(6));
+        model.addAttribute("plusSevenDays", modelWeather(7));
 
 
         model.addAttribute("date", date);
@@ -108,4 +104,8 @@ public class MainController {
 
 
 
+    private String modelWeather(int number){
+        return LocalDateTime.now().plusDays(number).format(DateTimeFormatter.ISO_LOCAL_DATE);
+
+    }
 }

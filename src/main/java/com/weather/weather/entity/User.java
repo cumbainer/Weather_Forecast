@@ -1,10 +1,6 @@
 package com.weather.weather.entity;
 
-
-
-
 import lombok.*;
-
 import jakarta.persistence.*;
 
 

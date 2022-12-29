@@ -15,7 +15,6 @@ import java.net.http.HttpResponse;
 //ToDO refactor later
 
 @Component
-//https://api.weatherbit.io/v2.0/forecast/daily?city=Kyiv&country=Ukraine&days=3&key=df4dfd8452b947299862f2ab1bac7663
 public class Client {
     private final String API_KEY = getAPI_KEY();
 
@@ -51,7 +50,6 @@ public class Client {
 
 
     //method to hide apikey
-    //df4dfd8452b947299862f2ab1bac7663
     @SneakyThrows
     private String getAPI_KEY(){
         File file = new File(

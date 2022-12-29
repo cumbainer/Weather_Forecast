@@ -33,8 +33,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         var user = userRepo.findUserByUsername(username);
         log.info("loadUserByUsername USERNAME= "+username);
 
-
-
         return user.map(SecurityUser::new).orElseThrow(() -> new UsernameNotFoundException("user" + username + "not found"));
     }
 }
