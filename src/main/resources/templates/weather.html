@@ -19,20 +19,22 @@
         <img id="image" src="https://lh3.googleusercontent.com/-eLBXrufh6EverAvRujEwVNg7eji61vMrJVlnt_nBQaN8DG2EF3Zw5xozE0vS2Daq1oU4cjDqRU7ekNXG1Xg68RIlWwFMHYzfebJojU5N51VkLzkCdPx8D8wvImMBS1TlHEX7_Is6kE4yeps_kztehJ2ueOiJkHSI_27m5wrj5xAOcua-06dJytw44oluxQXRUtA_TvwMvWyF970LsQMDzx_M-coDwtBE3pMHiz4VLpt1R2KDrPA3UuHB9zn4hWpSyNaBlf0lwuEjNdjKsFtObuhbF4kBGSm7KPBzMQ0uL8PQv-UA8WfKvH9nhzIbqSR43LCqCcN5D4yE1JHF5_yHPIkXMDxrct3qNjoG-uLBWTKREBINqxrPsORJKKxiqn-1dn9HqG0sGVFg31jSeYgn406PeXpm994hhXeOQL9sB10rqeSvNMKmlkSqTdL_mEyl3ImZ0fPiRk4t89TDah8JxFIRsRrR11LnmMmYKlaJ0ExzlqN1bODmI3XdkiDBAGqaIcy0BOJIDZPx-CDrlhQNjRRPyAG7M4jTXIiXvjFYwLFp_hF17nwz1ZNN9RWjqdwgkyvsmIX40hxiCny7jKWpbgqOYu4n9FJdlaknZ751lKkgrJkDOK6-dc1nlQXbUmYAfJEXY9oyIwXJodTSqMrAV4Uc6zilEauFsD7HyQbMdzEHk7ZG4v_YjSgtH4lC2DL7JWQU7ojU453OANgK-uCPZ6JdEn5M5TKxNbabasBJJGwfP1tkIWtfU35S7Xpjz-aFjF3FjCI1b5OBzCKBbXItZyJKhB3yTUJIRPXGQYi9XXrr_dR2MJjqsz-tKnhSGG0fu6F3G6P7ajDJYXilkE4ZqABQQ6673fd67KZGk0kTKFQ2WB8qIQ3xHIckBP4OmRFaseBneTbkw24ac8trpKJvO6gJAhMmfgmTFgsaKXDzwvvn79f-5fdGEilvmU53zilaZrTPplbGeUFr8T1JGeinti-1-oOU7p97aZXyhQMf0YFKhH3588=w364-h366-no?authuser=0"
          height="36px" width="36px"   alt="no image">
     </div>
+
     <div>
         <label for="txtName">
             <input type="text" id="txtName"/>
-            <a href = "javascript:;" onclick = "this.href= document.getElementById('txtName').value">Send</a>
+            <a href = "javascript:;" onclick = "this.href= document.getElementById('txtName').value">Enter</a>
         </label>
     </div>
+
 </nav>
 
 
-<!--    ToDO add round to following field-->
+
 <body>
 
     <h2 th:text="'Weather in: ' + ${day.getCity_name()}"></h2>
-    <h3 th:text="${day.getTimezone()}"></h3><br>
+    <h3 th:text="${'Timezone: ' + day.getTimezone()}"></h3><br>
 
 
 <table>

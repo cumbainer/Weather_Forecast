@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 //Auth provider class
 @Configuration
 
@@ -38,7 +40,14 @@ public class SecurityConfig {
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                    .defaultSuccessUrl("/d/Kyiv", true);
+                    .defaultSuccessUrl("/d/Kyiv", true)
+                    .and()
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutSuccessUrl("/login");
+
 
             return http.build();
 

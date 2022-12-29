@@ -7,7 +7,7 @@
     <title>Hourly</title>
     <nav class="navbar navbar-light bg-secondary">
         <div class="container -p2">
-            <a th:href="@{|/home|}" class="navbar-brand" >Weather Forecast</a>
+            <a onclick="history.back()" class="navbar-brand" >Weather Forecast</a>
         </div>
 
         <div >
@@ -156,7 +156,7 @@
 
 
 
-
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </body>
 </html>
 
