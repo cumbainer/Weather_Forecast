@@ -1,0 +1,8 @@
+<div xmlns:sec="http://www.w3.org/1999/xhtml">
+    <form sec:authorize="isAuthenticated()" class="text-right" style="margin-right: 20px; margin-top: 200px">
+        <h5>Hello, <span sec:authentication="principal.username"></span>!
+            <a th:href="@{/logout}" class="btn btn-info btn-sm">LogOut</a>
+        </h5>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+</div>

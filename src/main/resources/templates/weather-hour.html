@@ -46,8 +46,6 @@
             </tr>
             <tbody>
 
-            <!-- make th:swtich. If date.now() -> start_index = 1; if date.now().plusDays(1) -> start_index = 48(second day); etc -->
-
 
                     <tr th:each="h, iter : ${hour.data}">
                         <th:block th:switch="${date}">
