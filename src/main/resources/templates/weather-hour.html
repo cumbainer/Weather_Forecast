@@ -54,14 +54,8 @@
 
 
 
-                            <div th:case="${today}" >
+                            <div th:case="${today}" th:if="${iter.count <= 9}" >
                                 <div th:if="${iter.index}%2==0">
-
-
-                                    <!-- stop iteration when it.count == 10 --              th:if="${iter.count <= 10}"-->
-
-                                    <td><span th:text="${'ITERATION .COUNT: ' + iter.count}"></span></td>
-                                    <td><span th:text="${'ITERATION .INDEX: ' + iter.index}"></span></td>
                                     <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
                                     <td><span th:text="${h.getTemp() + 'C'}"></span></td>
                                     <td><span th:text="${h.getWind_spd()}"></span></td>
@@ -73,8 +67,7 @@
                             </div>
 
 
-                            <div th:case="${plusOneDay}" th:if="${iter.count >= 11 && iter.count <= 34}">
-                                <!-- stop iteration when it.count == 34 -->
+                            <div th:case="${plusOneDay}" th:if="${iter.count >= 10 && iter.count <= 33}">
                                 <div th:if="${iter.index}%2==0">
                                     <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
                                     <td><span th:text="${h.getTemp() + 'C'}"></span></td>
@@ -85,6 +78,72 @@
                                 </div>
                             </div>
 
+                            <div th:case="${plusTwoDays}" th:if="${iter.count >= 34 && iter.count <= 57}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
+
+                            <div th:case="${plusThreeDays}" th:if="${iter.count >= 58 && iter.count <= 81}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
+
+                            <div th:case="${plusFourDays}" th:if="${iter.count >= 82 && iter.count <= 105}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
+
+                            <div th:case="${plusFiveDays}" th:if="${iter.count >= 106 && iter.count <= 129}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
+
+                            <div th:case="${plusSixDays}" th:if="${iter.count >= 130 && iter.count <= 153}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
+
+
+                            <div th:case="${plusSevenDays}" th:if="${iter.count >= 154 && iter.count <= 167}">
+                                <div th:if="${iter.index}%2==0">
+                                    <td><span th:text="${h.getDatetime().substring(11, 13) + ':00'}"></span></td>
+                                    <td><span th:text="${h.getTemp() + 'C'}"></span></td>
+                                    <td><span th:text="${h.getWind_spd()}"></span></td>
+                                    <td><span th:text="${h.getWeather().getDescription()}"></span></td>
+                                    <td><img th:src="'https://www.weatherbit.io/static/img/icons/'+${h.getWeather().getIcon()
+                                        +'.png'}" alt="" width="50px"></td>
+                                </div>
+                            </div>
                             <!-- stop iteration when it.count == 58   (day 3) -->
 
 

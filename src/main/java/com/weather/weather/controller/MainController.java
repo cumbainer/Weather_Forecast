@@ -80,6 +80,8 @@ public class MainController {
 //        date = localDate.format(formatter);
         //will print 2022-12-29
 
+
+        //ToDo refactor making a method to not duplicate code
         model.addAttribute("today",  LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
         model.addAttribute("plusOneDay",  LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ISO_LOCAL_DATE));
         model.addAttribute("plusTwoDays",  LocalDateTime.now().plusDays(2).format(DateTimeFormatter.ISO_LOCAL_DATE));
@@ -87,7 +89,7 @@ public class MainController {
         model.addAttribute("plusFourDays",  LocalDateTime.now().plusDays(4).format(DateTimeFormatter.ISO_LOCAL_DATE));
         model.addAttribute("plusFiveDays",  LocalDateTime.now().plusDays(5).format(DateTimeFormatter.ISO_LOCAL_DATE));
         model.addAttribute("plusSixDays",  LocalDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE));
-        model.addAttribute("plusSeverDays",  LocalDateTime.now().plusDays(7).format(DateTimeFormatter.ISO_LOCAL_DATE));
+        model.addAttribute("plusSevenDays",  LocalDateTime.now().plusDays(7).format(DateTimeFormatter.ISO_LOCAL_DATE));
 
 
 
