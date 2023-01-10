@@ -9,8 +9,6 @@ import java.util.Optional;
 
 //No need @Repository, is does nothing
 
-
-
 public interface UserRepo extends JpaRepository<User, Long> {
 
 

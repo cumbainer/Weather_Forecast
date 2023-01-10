@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 //ToDO refactor later
 
 @Component
-public class Client {
+public class WeatherClientService {
     private final String API_KEY = getAPI_KEY();
 
     private final HttpClient httpClient = HttpClient.newHttpClient();

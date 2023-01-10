@@ -20,7 +20,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//No Arg con requeired for working properly
+
 @Service
 @AllArgsConstructor
 @Slf4j

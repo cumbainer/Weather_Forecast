@@ -11,18 +11,20 @@
         border-collapse: collapse;
         width: 100%;
     }
+
     td, th {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
     }
+
     tr:nth-child(even) {
         background-color: #dddddd;
     }
 </style>
-    <h2>The list of users</h2>
+<h2>The list of users</h2>
 
-<div >
+<div>
     <table>
         <tr>
             <th>Id</th>
@@ -32,21 +34,21 @@
             <th colspan="2">Operations</th>
         </tr>
         <tr th:each="user : ${users}">
-            <td th:text="${user.getId()}"> </td>
-            <td th:text="${user.getUsername()}"> </td>
-            <td th:text="${user.getPassword()}"> </td>
-            <td th:text="${user.getRole()}"> </td>
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getPassword()}"></td>
+            <td th:text="${user.getRole()}"></td>
             <td>
                 <a th:href="@{|/admin/${user.getId()}/delete|}">Remove</a>
 
             </td>
         </tr>
     </table>
-</div >
+</div>
 <a th:href="@{/d/Kyiv}">
     <button type="button" class="btn btn-outline btn-primary btn-lg">Go to Weather</button>
 </a>
 
-    <div th:replace="footer.html"></div>
+<div th:replace="footer.html"></div>
 </body>
 </html>

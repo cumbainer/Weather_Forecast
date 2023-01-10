@@ -8,9 +8,8 @@ public class HourlyWeather {
     private double app_temp;
     private double temp;
     private double wind_spd;
-
     private String datetime;
-    HourlyWeatherDescription weather = new HourlyWeatherDescription();
+    private HourlyWeatherDescription weather = new HourlyWeatherDescription();
 
 
 
